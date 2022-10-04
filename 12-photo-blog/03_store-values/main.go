@@ -46,7 +46,7 @@ func appendValue(w http.ResponseWriter, c *http.Cookie) *http.Cookie {
 	p2 := "atbeach.jpg"
 	p3 := "hollywood.jpg"
 	// append
-	s := c.Value
+	s := c.Value	// value of the cookie
 	if !strings.Contains(s, p1) {
 		s += "|" + p1
 	}
