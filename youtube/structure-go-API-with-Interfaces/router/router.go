@@ -4,11 +4,11 @@ import (
 	"net/http"
 
 	"github.com/LeonLow97/handlers/students"
-	"github.com/LeonLow97/store"
+	repository "github.com/LeonLow97/store"
 	"github.com/gorilla/mux"
 )
 
-func NewRouter(db *store.DB) *mux.Router {
+func NewRouter(db repository.DatabaseRepo) *mux.Router {
 	r := mux.NewRouter()
 
 	studentH := students.New(db)

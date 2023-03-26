@@ -10,15 +10,23 @@ import (
 	"time"
 
 	"github.com/LeonLow97/router"
-	"github.com/LeonLow97/store"
+	repository "github.com/LeonLow97/store"
+	"github.com/LeonLow97/store/dbrepo"
 )
+
+type application struct {
+	DB repository.DatabaseRepo
+}
 
 func main() {
 
 	// setup database connection
-	db := store.New()
+	db := dbrepo.New()
 
-	r := router.NewRouter(db)
+	// set up an app config
+	app := application{DB: db}
+
+	r := router.NewRouter(app.DB)
 
 	s := http.Server{
 		Addr:         "127.0.0.1:9000",

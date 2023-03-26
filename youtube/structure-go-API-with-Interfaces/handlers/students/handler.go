@@ -1,18 +1,17 @@
 package students
 
 import (
-	"fmt"
 	"net/http"
 
-	"github.com/LeonLow97/store"
+	repository "github.com/LeonLow97/store"
 	"github.com/LeonLow97/types"
 )
 
 type st struct {
-	db *store.DB
+	db repository.DatabaseRepo
 }
 
-func New(db *store.DB) *st {
+func New(db repository.DatabaseRepo) *st {
 	return &st{db: db}
 }
 
@@ -29,8 +28,6 @@ func (s st) NewStudent(rw http.ResponseWriter, r *http.Request) {
 	if err := s.db.InsertNewStudent(&student); err != nil {
 		http.Error(rw, "Failed to insert", http.StatusBadRequest)
 	}
-
-	fmt.Printf("%#v", s.db.GetAllStudents())
 
 	rw.WriteHeader(http.StatusCreated)
 	student.EncodeToJSON(rw)
