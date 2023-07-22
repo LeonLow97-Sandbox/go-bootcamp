@@ -14,3 +14,8 @@
 
 - `https://github.com/stripe/stripe-go`
 - `go get -u github.com/stripe/stripe-go/v72`
+
+## CORS
+
+- `https://github.com/go-chi/cors`
+- `go get github.com/go-chi/cors`
