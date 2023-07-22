@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"html/template"
 	"log"
 	"net/http"
 	"os"
@@ -11,12 +10,10 @@ import (
 )
 
 const version = "1.0.0"
-const cssVersion = "1"
 
 type config struct {
 	port int
 	env  string
-	api  string
 	db   struct {
 		dsn string
 	}
@@ -27,11 +24,10 @@ type config struct {
 }
 
 type application struct {
-	config        config
-	infoLog       *log.Logger
-	errorLog      *log.Logger
-	templateCache map[string]*template.Template
-	version       string
+	config   config
+	infoLog  *log.Logger
+	errorLog *log.Logger
+	version  string
 }
 
 func (app *application) serve() error {
@@ -44,7 +40,7 @@ func (app *application) serve() error {
 		WriteTimeout:      5 * time.Second,
 	}
 
-	app.infoLog.Printf("Starting Backend server in %s mode on port %d", app.config.env, app.config.port)
+	app.infoLog.Println(fmt.Sprintf("Starting Back end server in %s mode on port %d", app.config.env, app.config.port))
 
 	return srv.ListenAndServe()
 }
@@ -53,7 +49,7 @@ func main() {
 	var cfg config
 
 	flag.IntVar(&cfg.port, "port", 4001, "Server port to listen on")
-	flag.StringVar(&cfg.env, "env", "development", "Application environment {development|production|maintenance}")
+	flag.StringVar(&cfg.env, "env", "development", "Application enviornment {development|production|maintenance}")
 
 	flag.Parse()
 
@@ -67,6 +63,7 @@ func main() {
 		config:   cfg,
 		infoLog:  infoLog,
 		errorLog: errorLog,
+		version:  version,
 	}
 
 	err := app.serve()

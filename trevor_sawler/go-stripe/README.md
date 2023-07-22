@@ -1,4 +1,4 @@
-# setup
+# Setup
 
 - go mod init myapp
 - `go get github.com/go-chi/chi/v5`
@@ -19,3 +19,13 @@
 
 - `https://github.com/go-chi/cors`
 - `go get github.com/go-chi/cors`
+
+## Adding `Makefile`
+
+- Hot reloading for both frontend and backend
+- Ensure `Makefile` is in root directory
+- `make start_back`
+
+## Stripe Test Error Code
+
+- `https://stripe.com/docs/testing`
