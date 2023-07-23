@@ -112,7 +112,7 @@ VALUES
 );
 
 ALTER TABLE widgets ADD COLUMN image VARCHAR(400);
-
+update widgets set image = 'widget.png' where id = 1;
 
 CREATE TABLE customers (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -130,3 +130,4 @@ ALTER TABLE orders ADD  CONSTRAINT `FK_order_customer_id`  FOREIGN KEY (customer
 
 ALTER TABLE transactions ADD COLUMN expiry_month INT DEFAULT 0;
 ALTER TABLE transactions ADD COLUMN expiry_year INT DEFAULT 0;
+
