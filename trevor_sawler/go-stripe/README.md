@@ -29,3 +29,12 @@
 ## Stripe Test Error Code
 
 - `https://stripe.com/docs/testing`
+
+## Configuring SQL
+
+- `go get github.com/go-sql-driver/mysql`
+
+```sql
+CREATE USER 'leon'@'%' IDENTIFIED BY 'secret';
+GRANT ALL PRIVILEGES ON * . * TO 'leon'@'%';
+```
