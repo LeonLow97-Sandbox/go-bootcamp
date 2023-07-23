@@ -38,3 +38,9 @@
 CREATE USER 'leon'@'%' IDENTIFIED BY 'secret';
 GRANT ALL PRIVILEGES ON * . * TO 'leon'@'%';
 ```
+
+## Database Migration
+
+- Soda CLI - Buffalo
+    - `https://gobuffalo.io/documentation/database/soda/`
+- `brew install gobuffalo/tap/pop`
