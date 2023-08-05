@@ -240,7 +240,8 @@ func createDummyData(db *sql.DB) {
 		('Victoria', 29),
 		('Avery', 30),
 		('Mia', 27),
-		('Noah', 26);
+		('Noah', 26),
+		('Jie Wei', 26);
 	`)
 	if err != nil {
 		log.Fatalf("Error creating dummy data: %v", err)

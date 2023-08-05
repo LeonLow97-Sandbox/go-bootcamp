@@ -128,7 +128,7 @@ The pointer approach allows you to directly modify the original data structure.
 // causes issue if somewhere in the code, garbage collection is performed on the variable but
 // subsequent code is still relying on the Player struct
 player = nil
-printPlayerHealth(&player.health) // Output: panic: runtime error: invalid memory address or nil pointer dereference
+printPlayerHealth(player.health) // Output: panic: runtime error: invalid memory address or nil pointer dereference
 
 // What a nasty error message!
 ```

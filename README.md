@@ -16,7 +16,7 @@
   - Structure of Golang API with interfaces (recommended).
   - Suitable for Unit Testing
 - `structure-JSON-API-project`
-  - Enable custom error messages.
+  - Enable custom error messages and returning properly formatted JSON responses.
   - Course by _Anthony GG_
 - `pointers`
   - Course on pointers and receivers in Golang.

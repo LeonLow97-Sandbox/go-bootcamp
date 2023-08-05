@@ -1,3 +1,5 @@
-# Pagination
+# Starting the Project
 
-- Pagination is a technique used to divide large result sets into smaller, manageable chunks or pages. It's commonly used 
+- `docker-compose build`
+- `docker-compose up`
+- `http://localhost:8080/users?page=1` (Total of 160 records, displaying 10 records per page)
