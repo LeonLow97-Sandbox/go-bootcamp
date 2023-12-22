@@ -18,3 +18,4 @@ func callSayHello(client pb.GreetServiceClient) {
 	}
 	log.Printf("%s", res.Message)
 }
+
