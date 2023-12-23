@@ -26,6 +26,7 @@ type GreetServiceClient interface {
 	SayHelloServerStreaming(ctx context.Context, in *NamesList, opts ...grpc.CallOption) (GreetService_SayHelloServerStreamingClient, error)
 	SayHelloClientStreaming(ctx context.Context, opts ...grpc.CallOption) (GreetService_SayHelloClientStreamingClient, error)
 	SayHelloBidirectionalStreaming(ctx context.Context, opts ...grpc.CallOption) (GreetService_SayHelloBidirectionalStreamingClient, error)
+	SendUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*AuthenticatedResponse, error)
 }
 
 type greetServiceClient struct {
@@ -142,6 +143,15 @@ func (x *greetServiceSayHelloBidirectionalStreamingClient) Recv() (*HelloRespons
 	return m, nil
 }
 
+func (c *greetServiceClient) SendUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*AuthenticatedResponse, error) {
+	out := new(AuthenticatedResponse)
+	err := c.cc.Invoke(ctx, "/greet_service.GreetService/SendUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // GreetServiceServer is the server API for GreetService service.
 // All implementations must embed UnimplementedGreetServiceServer
 // for forward compatibility
@@ -150,6 +160,7 @@ type GreetServiceServer interface {
 	SayHelloServerStreaming(*NamesList, GreetService_SayHelloServerStreamingServer) error
 	SayHelloClientStreaming(GreetService_SayHelloClientStreamingServer) error
 	SayHelloBidirectionalStreaming(GreetService_SayHelloBidirectionalStreamingServer) error
+	SendUser(context.Context, *User) (*AuthenticatedResponse, error)
 	mustEmbedUnimplementedGreetServiceServer()
 }
 
@@ -168,6 +179,9 @@ func (UnimplementedGreetServiceServer) SayHelloClientStreaming(GreetService_SayH
 }
 func (UnimplementedGreetServiceServer) SayHelloBidirectionalStreaming(GreetService_SayHelloBidirectionalStreamingServer) error {
 	return status.Errorf(codes.Unimplemented, "method SayHelloBidirectionalStreaming not implemented")
+}
+func (UnimplementedGreetServiceServer) SendUser(context.Context, *User) (*AuthenticatedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendUser not implemented")
 }
 func (UnimplementedGreetServiceServer) mustEmbedUnimplementedGreetServiceServer() {}
 
@@ -273,6 +287,24 @@ func (x *greetServiceSayHelloBidirectionalStreamingServer) Recv() (*HelloRequest
 	return m, nil
 }
 
+func _GreetService_SendUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GreetServiceServer).SendUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greet_service.GreetService/SendUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GreetServiceServer).SendUser(ctx, req.(*User))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // GreetService_ServiceDesc is the grpc.ServiceDesc for GreetService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -283,6 +315,10 @@ var GreetService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SayHello",
 			Handler:    _GreetService_SayHello_Handler,
+		},
+		{
+			MethodName: "SendUser",
+			Handler:    _GreetService_SendUser_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
