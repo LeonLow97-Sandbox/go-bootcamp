@@ -16,6 +16,7 @@ func callHelloBidirectionalStream(client pb.GreetServiceClient, names *pb.NamesL
 		log.Fatalf("could not send names: %v", err)
 	}
 
+	// waitc is a channel used for synchronization
 	waitc := make(chan struct{})
 
 	go func() {
@@ -30,6 +31,7 @@ func callHelloBidirectionalStream(client pb.GreetServiceClient, names *pb.NamesL
 			}
 			log.Println(message)
 		}
+		// close the channel when receiving is completed
 		close(waitc)
 	}()
 
@@ -43,6 +45,8 @@ func callHelloBidirectionalStream(client pb.GreetServiceClient, names *pb.NamesL
 		time.Sleep(2 * time.Second)
 	}
 	stream.CloseSend()
+
+	// wait for the receiving goroutine to finish
 	<-waitc
 	log.Printf("Bidirectional streaming finished")
 }
