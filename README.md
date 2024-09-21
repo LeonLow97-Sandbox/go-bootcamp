@@ -12,6 +12,7 @@
 | :------------------------------------------------------------------: | :-----------: | :--------------------------------------------------------------------: |
 | Udemy - Web Development w/ Google's Go (golang) Programming Language |  Todd McLeod  |     [Link](https://www.udemy.com/course/go-programming-language/)      |
 |    Udemy - Building Web Applications with Go - Intermediate Level    | Trevor Sawler | [Link](https://www.udemy.com/course/vue-with-test-driven-development/) |
+| Udemy - Working with Vue 3 and Go (Golang) | Trevor Sawler | [Link](https://www.udemy.com/course/working-with-vue-3-and-go/) |
 
 ## Web Sockets
 
