@@ -34,3 +34,9 @@
 |               Course Name                |  Instructor   |                             Course Link                              |
 | :--------------------------------------: | :-----------: | :------------------------------------------------------------------: |
 | Udemy - Building a module in Go (Golang) | Trevor Sawler | [Link](https://www.udemy.com/course/building-a-module-in-go-golang/) |
+
+# Go Design Patterns
+
+|          Course Name          |    Instructor    |                       Course Link                        |
+| :---------------------------: | :--------------: | :------------------------------------------------------: |
+| Udemy - Design Patterns in Go | Dimitri Nesteruk | [Link](https://www.udemy.com/course/design-patterns-go/) |
