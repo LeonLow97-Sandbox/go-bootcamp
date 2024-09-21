@@ -15,14 +15,21 @@
 |    Udemy - Building Web Applications with Go - Intermediate Level    | Trevor Sawler | [Link](https://www.udemy.com/course/vue-with-test-driven-development/) |
 |              Udemy - Working with Vue 3 and Go (Golang)              | Trevor Sawler |    [Link](https://www.udemy.com/course/working-with-vue-3-and-go/)     |
 
-## Web Sockets
+# Unit Testing
+
+|                  Course Name                   |  Instructor   |                                      Course Link                                       |
+| :--------------------------------------------: | :-----------: | :------------------------------------------------------------------------------------: |
+| Udemy - Introduction to Testing in Go (Golang) | Trevor Sawler |       [Link](https://www.udemy.com/course/introduction-to-testing-in-go-golang/)       |
+|      YouTube - Unit Testing with Testify       |    YouTube    | [Link](https://www.youtube.com/watch?v=uB_45bSIyik&t=877s&ab_channel=PragmaticReviews) |
+
+# Web Sockets
 
 |                              Course Name                              |  Instructor   |                             Course Link                             |
 | :-------------------------------------------------------------------: | :-----------: | :-----------------------------------------------------------------: |
 |            Udemy - Working with WebSockets in Go (Golang)             | Trevor Sawler | [Link](https://www.udemy.com/course/working-with-websockets-in-go/) |
 | YouTube - How to build a Chat and Data Feed with WebSockets in Golang |  Anthony GG   |         [Link](https://www.youtube.com/watch?v=JuUAEYLkGbM)         |
 
-## Go Modules
+# Go Modules
 
 |               Course Name                |  Instructor   |                             Course Link                              |
 | :--------------------------------------: | :-----------: | :------------------------------------------------------------------: |
