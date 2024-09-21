@@ -1,10 +1,11 @@
 # Go
 
-|                            Course Name                             |  Instructor  |                                Course Link                                 |
-| :----------------------------------------------------------------: | :----------: | :------------------------------------------------------------------------: |
-|       YouTube - Structuring Go (Golang) Applications (APIs)        | Akshay Gupta | [Link](https://www.youtube.com/watch?v=PVqFi5qrJwA&ab_channel=AkshayGupta) |
-| YouTube - How to build and structure a JSON API project in Golang? |  Anthony GG  |  [Link](https://www.youtube.com/watch?v=CJfE9kD_i7Q&ab_channel=AnthonyGG)  |
-|   YouTube - Everything You Need To Know About Pointers In Golang   |  Anthony GG  |  [Link](https://www.youtube.com/watch?v=mqH21m0MsWk&ab_channel=AnthonyGG)  |
+|                            Course Name                             |   Instructor   |                                Course Link                                 |
+| :----------------------------------------------------------------: | :------------: | :------------------------------------------------------------------------: |
+|        Udemy - Go: The Complete Developer's Guide (Golang)         | Stephen Grider |   [Link](https://www.udemy.com/course/go-the-complete-developers-guide)    |
+|       YouTube - Structuring Go (Golang) Applications (APIs)        |  Akshay Gupta  | [Link](https://www.youtube.com/watch?v=PVqFi5qrJwA&ab_channel=AkshayGupta) |
+| YouTube - How to build and structure a JSON API project in Golang? |   Anthony GG   |  [Link](https://www.youtube.com/watch?v=CJfE9kD_i7Q&ab_channel=AnthonyGG)  |
+|   YouTube - Everything You Need To Know About Pointers In Golang   |   Anthony GG   |  [Link](https://www.youtube.com/watch?v=mqH21m0MsWk&ab_channel=AnthonyGG)  |
 
 # Web Development
 
@@ -12,7 +13,7 @@
 | :------------------------------------------------------------------: | :-----------: | :--------------------------------------------------------------------: |
 | Udemy - Web Development w/ Google's Go (golang) Programming Language |  Todd McLeod  |     [Link](https://www.udemy.com/course/go-programming-language/)      |
 |    Udemy - Building Web Applications with Go - Intermediate Level    | Trevor Sawler | [Link](https://www.udemy.com/course/vue-with-test-driven-development/) |
-| Udemy - Working with Vue 3 and Go (Golang) | Trevor Sawler | [Link](https://www.udemy.com/course/working-with-vue-3-and-go/) |
+|              Udemy - Working with Vue 3 and Go (Golang)              | Trevor Sawler |    [Link](https://www.udemy.com/course/working-with-vue-3-and-go/)     |
 
 ## Web Sockets
 
