@@ -19,3 +19,9 @@
 | :-------------------------------------------------------------------: | :-----------: | :-----------------------------------------------------------------: |
 |            Udemy - Working with WebSockets in Go (Golang)             | Trevor Sawler | [Link](https://www.udemy.com/course/working-with-websockets-in-go/) |
 | YouTube - How to build a Chat and Data Feed with WebSockets in Golang |  Anthony GG   |         [Link](https://www.youtube.com/watch?v=JuUAEYLkGbM)         |
+
+## Go Modules
+
+|               Course Name                |  Instructor   |                             Course Link                              |
+| :--------------------------------------: | :-----------: | :------------------------------------------------------------------: |
+| Udemy - Building a module in Go (Golang) | Trevor Sawler | [Link](https://www.udemy.com/course/building-a-module-in-go-golang/) |
