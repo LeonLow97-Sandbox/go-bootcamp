@@ -6,3 +6,9 @@
 - Instead, opt for piecewise (piece-by-piece) construction.
 - Builder provides an APi for constructing an object step by step.
 - Builder: When piecewise object construction is completed, provide an API for doing it succinctly.
+
+## Summary
+
+- A builder is a separate component used for building an object
+- To make builder fluent, return the receiver - allows chaining
+- Different facets of an object can be built with different builders working in tandem via a common struct
