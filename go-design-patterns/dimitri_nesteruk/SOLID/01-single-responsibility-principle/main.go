@@ -10,7 +10,7 @@ import (
 var entryCount = 0
 
 // Journal has a single responsibility for storing and manipulating journal entries.
-// It does not deal with hot those entries are saved or loaded.
+// It does not deal with whether those entries are saved or loaded.
 type Journal struct {
 	entries []string
 }
@@ -35,7 +35,7 @@ func (j *Journal) String() string {
 }
 
 // separation of concerns for persistence of journal
-// different responsibility
+// different responsibility, best not to use methods, pass Journal as argument to func
 func (j *Journal) Save(filename string) {
 	_ = os.WriteFile(filename, []byte(j.String()), 0644)
 }
