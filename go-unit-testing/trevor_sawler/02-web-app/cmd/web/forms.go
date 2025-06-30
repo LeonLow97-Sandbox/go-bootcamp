@@ -21,13 +21,13 @@ func (e errors) Add(field, message string) {
 }
 
 type Form struct {
-	Data url.Values
+	Data   url.Values
 	Errors errors
 }
 
 func NewForm(data url.Values) *Form {
 	return &Form{
-		Data: data,
+		Data:   data,
 		Errors: map[string][]string{},
 	}
 }
@@ -41,7 +41,7 @@ func (f *Form) Has(field string) bool {
 	return true
 }
 
-func (f *Form) Required (fields ...string) {
+func (f *Form) Required(fields ...string) {
 	for _, field := range fields {
 		value := f.Data.Get(field)
 		if strings.TrimSpace(value) == "" {
@@ -59,5 +59,5 @@ func (f *Form) Check(ok bool, key, message string) {
 // Determine if the form is valid
 func (f *Form) Valid() bool {
 	// returns true if there are no errors in the form
-	return len(f.Errors) == 0 
+	return len(f.Errors) == 0
 }

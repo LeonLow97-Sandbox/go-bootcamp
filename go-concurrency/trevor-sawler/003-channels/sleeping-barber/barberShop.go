@@ -79,9 +79,9 @@ func (shop *BarberShop) addClient(client string) {
 	// print out a message
 	color.Green("*** %s arrives!", client)
 
-	if shop.Open{
+	if shop.Open {
 		select {
-			// shop has space (fits buffered capacity)
+		// shop has space (fits buffered capacity)
 		case shop.ClientsChan <- client:
 			color.Blue("%s takes a seat in the waiting room.", client)
 			// buffered channel is full

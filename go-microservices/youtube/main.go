@@ -24,7 +24,7 @@ func NewService() *Service {
 	if err != nil {
 		log.Fatal("Error in NewService", err)
 	}
-	
+
 	// assigns the created Consul API client to the Service struct
 	return &Service{
 		consulClient: client,
@@ -38,8 +38,8 @@ func (s *Service) Start() {
 	}
 
 	s.registerServiceToConsul() // registers the service to Consul
-	go s.updateHealthCheck() // starts a goroutine to continuously update health status
-	s.acceptLoop(ln) // starts the loop to accept incoming connections
+	go s.updateHealthCheck()    // starts a goroutine to continuously update health status
+	s.acceptLoop(ln)            // starts the loop to accept incoming connections
 }
 
 func (s *Service) acceptLoop(ln net.Listener) {
@@ -80,16 +80,16 @@ func (s *Service) registerServiceToConsul() {
 		ID:      "login_service",   // unique ID for the service registration
 		Name:    "mycluster",       // name of the service
 		Tags:    []string{"login"}, // tags associated with the service
-		Address: "127.0.0.1", // ip address where the service is available
-		Port:    3000, // port on which the service is available
-		Check:   check, // set the health check for the service
+		Address: "127.0.0.1",       // ip address where the service is available
+		Port:    3000,              // port on which the service is available
+		Check:   check,             // set the health check for the service
 	}
 
 	// set up a watcher to monitor changes in services
-	query := map[string]any{ 
-		"type":        "service", // query type for the watcher
+	query := map[string]any{
+		"type":        "service",   // query type for the watcher
 		"service":     "mycluster", // service name to watch for changes
-		"passingonly": true, // watch only passing services
+		"passingonly": true,        // watch only passing services
 	}
 
 	// create a watch plan
@@ -98,7 +98,7 @@ func (s *Service) registerServiceToConsul() {
 	if err != nil {
 		log.Fatal("error parsing watcher", err)
 	}
-	
+
 	// define a handler to process updates received from the watch plan
 	plan.HybridHandler = func(index watch.BlockingParamVal, result interface{}) {
 		switch msg := result.(type) {

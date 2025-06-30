@@ -23,7 +23,7 @@ func Test_app_getTokenFromHeaderAndVerify(t *testing.T) {
 		token         string
 		errorExpected bool
 		setHeader     bool
-		issuer string
+		issuer        string
 	}{
 		{"valid", fmt.Sprintf("Bearer %s", tokens.Token), false, true, app.Domain},
 		{"valid but expired", fmt.Sprintf("Bearer %s", expiredToken), true, true, app.Domain},

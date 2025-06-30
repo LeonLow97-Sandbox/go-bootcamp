@@ -71,13 +71,13 @@ func main() {
 	pb := NewPersonBuilder()
 	pb.
 		Lives().
-      At("123 London Road").
-      In("London").
-      WithPostcode("SW12BC").
+		At("123 London Road").
+		In("London").
+		WithPostcode("SW12BC").
 		Works().
-      At("Google").
-      AsA("Software Engineer").
-      Earning(1230000)
+		At("Google").
+		AsA("Software Engineer").
+		Earning(1230000)
 	person := pb.Build()
 	fmt.Println(person)
 }

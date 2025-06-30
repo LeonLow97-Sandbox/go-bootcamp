@@ -27,7 +27,7 @@ func (p *Person) DeepCopy() *Person {
 	d := gob.NewDecoder(&b)
 	result := Person{}    // prepare memory for Person
 	_ = d.Decode(&result) // decode into an object from the buffer
-    return &result
+	return &result
 }
 
 func main() {

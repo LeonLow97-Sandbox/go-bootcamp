@@ -99,13 +99,13 @@ func Test_app_refresh(t *testing.T) {
 
 func Test_app_userHandlers(t *testing.T) {
 	var tests = []struct {
-		name string
-		method string
-		json string
-		paramID string
-		handler http.HandlerFunc
+		name           string
+		method         string
+		json           string
+		paramID        string
+		handler        http.HandlerFunc
 		expectedStatus int
-	} {
+	}{
 		{"allUsers", "GET", "", "", app.allUsers, http.StatusOK},
 		{"deleteUser", "DELETE", "", "1", app.deleteUser, http.StatusNoContent},
 		{"deleteUser bad URL param", "DELETE", "", "Y", app.deleteUser, http.StatusBadRequest},
@@ -113,51 +113,51 @@ func Test_app_userHandlers(t *testing.T) {
 		{"getUser invalid", "GET", "", "100", app.getUser, http.StatusBadRequest},
 		{"getUser bad URL param", "GET", "", "Y", app.getUser, http.StatusBadRequest},
 		{
-			"updateUser valid", 
-			"PATCH", 
-			`{"id":1,"first_name":"Administrator","last_name":"User","email":"admin@example.com"}`, 
-			"", 
-			app.updateUser, 
+			"updateUser valid",
+			"PATCH",
+			`{"id":1,"first_name":"Administrator","last_name":"User","email":"admin@example.com"}`,
+			"",
+			app.updateUser,
 			http.StatusNoContent,
 		},
 		{
-			"updateUser invalid", 
-			"PATCH", 
-			`{"id":100,"first_name":"Administrator","last_name":"User","email":"admin@example.com"}`, 
-			"", 
-			app.updateUser, 
+			"updateUser invalid",
+			"PATCH",
+			`{"id":100,"first_name":"Administrator","last_name":"User","email":"admin@example.com"}`,
+			"",
+			app.updateUser,
 			http.StatusBadRequest,
 		},
 		{
-			"updateUser invalid json", 
-			"PATCH", 
-			`{"id":1,first_name:"Administrator","last_name":"User","email":"admin@example.com"}`, 
-			"", 
-			app.updateUser, 
+			"updateUser invalid json",
+			"PATCH",
+			`{"id":1,first_name:"Administrator","last_name":"User","email":"admin@example.com"}`,
+			"",
+			app.updateUser,
 			http.StatusBadRequest,
 		},
 		{
-			"insertUser valid", 
-			"PUT", 
-			`{"first_name":"Leon","last_name":"Low","email":"leonlow@example.com"}`, 
-			"", 
-			app.insertUser, 
+			"insertUser valid",
+			"PUT",
+			`{"first_name":"Leon","last_name":"Low","email":"leonlow@example.com"}`,
+			"",
+			app.insertUser,
 			http.StatusNoContent,
 		},
 		{
-			"insertUser invalid", 
-			"PUT", 
-			`{"foo":"bar","first_name":"Leon","last_name":"Low","email":"leonlow@example.com"}`, 
-			"", 
-			app.insertUser, 
+			"insertUser invalid",
+			"PUT",
+			`{"foo":"bar","first_name":"Leon","last_name":"Low","email":"leonlow@example.com"}`,
+			"",
+			app.insertUser,
 			http.StatusBadRequest,
 		},
 		{
-			"insertUser invalid json", 
-			"PUT", 
-			`{first_name:"Leon","last_name":"Low","email":"leonlow@example.com"}`, 
-			"", 
-			app.insertUser, 
+			"insertUser invalid json",
+			"PUT",
+			`{first_name:"Leon","last_name":"Low","email":"leonlow@example.com"}`,
+			"",
+			app.insertUser,
 			http.StatusBadRequest,
 		},
 	}
@@ -187,45 +187,45 @@ func Test_app_userHandlers(t *testing.T) {
 }
 
 func Test_app_refreshUsingCookie(t *testing.T) {
-	testUser := data.User {
-		ID: 1,
+	testUser := data.User{
+		ID:        1,
 		FirstName: "Admin",
-		LastName: "User",
-		Email: "admin@example.com",
+		LastName:  "User",
+		Email:     "admin@example.com",
 	}
 
 	tokens, _ := app.generateTokenPair(&testUser)
 
-	testCookie := &http.Cookie {
-		Name: "leon-refresh_token",
-		Path: "/",
-		Value: tokens.RefreshToken,
-		Expires: time.Now().Add(refreshTokenExpiry),
-		MaxAge: int(refreshTokenExpiry.Seconds()),
+	testCookie := &http.Cookie{
+		Name:     "leon-refresh_token",
+		Path:     "/",
+		Value:    tokens.RefreshToken,
+		Expires:  time.Now().Add(refreshTokenExpiry),
+		MaxAge:   int(refreshTokenExpiry.Seconds()),
 		SameSite: http.SameSiteStrictMode,
-		Domain: "localhost",
+		Domain:   "localhost",
 		HttpOnly: true,
-		Secure: true,
+		Secure:   true,
 	}
 
-	badCookie := &http.Cookie {
-		Name: "leon-refresh_token",
-		Path: "/",
-		Value: "someBadString",
-		Expires: time.Now().Add(refreshTokenExpiry),
-		MaxAge: int(refreshTokenExpiry.Seconds()),
+	badCookie := &http.Cookie{
+		Name:     "leon-refresh_token",
+		Path:     "/",
+		Value:    "someBadString",
+		Expires:  time.Now().Add(refreshTokenExpiry),
+		MaxAge:   int(refreshTokenExpiry.Seconds()),
 		SameSite: http.SameSiteStrictMode,
-		Domain: "localhost",
+		Domain:   "localhost",
 		HttpOnly: true,
-		Secure: true,
+		Secure:   true,
 	}
 
 	var tests = []struct {
-		name string
-		addCookie bool
-		cookie *http.Cookie
+		name           string
+		addCookie      bool
+		cookie         *http.Cookie
 		expectedStatus int
-	} {
+	}{
 		{"valid cookie", true, testCookie, http.StatusOK},
 		{"invalid cookie", true, badCookie, http.StatusBadRequest},
 		{"no cookie", false, nil, http.StatusUnauthorized},

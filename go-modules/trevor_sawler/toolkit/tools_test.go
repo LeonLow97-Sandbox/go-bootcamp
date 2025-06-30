@@ -29,12 +29,12 @@ func NewTestClient(fn RoundTripFunc) *http.Client {
 }
 
 func TestTools_PushJSONToRemote(t *testing.T) {
-	client := NewTestClient(func(req *http.Request) *http.Response{
+	client := NewTestClient(func(req *http.Request) *http.Response {
 		// test request parameters
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body: io.NopCloser(bytes.NewBufferString("ok")),
-			Header: make(http.Header),
+			Body:       io.NopCloser(bytes.NewBufferString("ok")),
+			Header:     make(http.Header),
 		}
 	})
 

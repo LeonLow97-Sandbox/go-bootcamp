@@ -44,5 +44,5 @@ func main() {
 	p.SayHello()
 
 	tp := NewPerson("James", 200)
-    tp.SayHello()
+	tp.SayHello()
 }

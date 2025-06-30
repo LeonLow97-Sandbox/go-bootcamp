@@ -21,7 +21,7 @@ func main() {
 
 	for _, link := range links {
 		// create a 'go' routine
-		go checkLink(link, c)  // pass channel 'c' into checkLink function
+		go checkLink(link, c) // pass channel 'c' into checkLink function
 	}
 
 	// Creating an infinite loop for repeating routines
@@ -34,11 +34,11 @@ func main() {
 		go func(link string) {
 			// pause for 5 seconds
 			time.Sleep(5 * time.Second)
-			checkLink(link ,c) // main routine and child routine are always looking at the same variable, same location in memory. ('l' is defined in the outer scope.)
+			checkLink(link, c) // main routine and child routine are always looking at the same variable, same location in memory. ('l' is defined in the outer scope.)
 			// never reference the same variable in different routines.
 			// main routine reference variable keeps changing, but child routine still looks at the copy of the same link.
-		}	(l)   // function is invoked immediately (calling itself)
-		// pass in 'l' to the function literal. 
+		}(l) // function is invoked immediately (calling itself)
+		// pass in 'l' to the function literal.
 	}
 
 	// // using a for loop for the channels

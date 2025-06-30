@@ -8,7 +8,7 @@ import (
 )
 
 // custom type for Write function
-type logWriter struct {}
+type logWriter struct{}
 
 func main() {
 	resp, err := http.Get("https://www.google.com")
@@ -37,4 +37,4 @@ func (logWriter) Write(bs []byte) (int, error) {
 	fmt.Println("Just wrote this many bytes:", len(bs))
 
 	return len(bs), nil
-} 
+}

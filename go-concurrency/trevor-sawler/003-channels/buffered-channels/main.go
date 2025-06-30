@@ -21,7 +21,6 @@ func main() {
 
 	go listenToChan(ch)
 
-
 	for i := 1; i < 100; i++ {
 		fmt.Println("sending", i, "to channel...")
 		ch <- i

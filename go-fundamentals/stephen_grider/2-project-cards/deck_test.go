@@ -21,8 +21,8 @@ func TestNewDeck(t *testing.T) {
 	}
 
 	// Code to make sure that the last card is a Four of Clubs
-	if d[len(d) - 1] != "Four of Clubs" {
-		t.Errorf("Expected last card of Four of Clubs, but got %v", d[len(d) - 1])
+	if d[len(d)-1] != "Four of Clubs" {
+		t.Errorf("Expected last card of Four of Clubs, but got %v", d[len(d)-1])
 	}
 
 }

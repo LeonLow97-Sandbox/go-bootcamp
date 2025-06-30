@@ -40,7 +40,7 @@ var eatTime = 1 * time.Second
 var thinkTime = 3 * time.Second
 var sleepTime = 1 * time.Second
 
-var orderMutex sync.Mutex // a mutex for the slice orderFinished
+var orderMutex sync.Mutex  // a mutex for the slice orderFinished
 var orderFinished []string // the order in which philosophers finish dining and leave
 
 func main() {

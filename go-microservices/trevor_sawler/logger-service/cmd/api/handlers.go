@@ -17,7 +17,7 @@ func (app *Config) WriteLog(w http.ResponseWriter, r *http.Request) {
 
 	// insert data
 	event := data.LogEntry{
-		Name: requestPayload.Name, 
+		Name: requestPayload.Name,
 		Data: requestPayload.Data,
 	}
 
@@ -28,7 +28,7 @@ func (app *Config) WriteLog(w http.ResponseWriter, r *http.Request) {
 	}
 
 	resp := jsonResponse{
-		Error: false,
+		Error:   false,
 		Message: "logged",
 	}
 

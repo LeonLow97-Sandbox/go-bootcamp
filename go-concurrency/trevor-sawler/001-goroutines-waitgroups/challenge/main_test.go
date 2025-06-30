@@ -66,4 +66,4 @@ func Test_main(t *testing.T) {
 	if !strings.Contains(output, "Hello, world!") {
 		t.Error("Expected to find Hello, world!, but it is not there")
 	}
-}	
+}

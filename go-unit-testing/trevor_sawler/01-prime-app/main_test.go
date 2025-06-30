@@ -12,11 +12,11 @@ import (
 func Test_alpha_isPrime(t *testing.T) {
 	// Table Test (using struct)
 	primeTests := []struct {
-		name string
-		testNum int
+		name     string
+		testNum  int
 		expected bool
-		msg string
-	} {
+		msg      string
+	}{
 		{"prime", 7, true, "7 is a prime number!"},
 		{"not prime", 8, false, "8 is not a prime number because it is divisible by 2!"},
 		{"zero", 0, false, "0 is not prime, by definition!"},
@@ -65,32 +65,32 @@ func Test_alpha_prompt(t *testing.T) {
 }
 
 func Test_intro(t *testing.T) {
-		oldOut := os.Stdout
+	oldOut := os.Stdout
 
-		r, w, _ := os.Pipe()
-	
-		os.Stdout = w
-	
-		intro()
-	
-		_ = w.Close()
-	
-		os.Stdout = oldOut
-	
-		out, _ := io.ReadAll(r)
-	
-		if !strings.Contains(string(out), "Enter a whole number") {
-			t.Errorf("Intro text is incorrect; got %s", string(out))
-		}
+	r, w, _ := os.Pipe()
+
+	os.Stdout = w
+
+	intro()
+
+	_ = w.Close()
+
+	os.Stdout = oldOut
+
+	out, _ := io.ReadAll(r)
+
+	if !strings.Contains(string(out), "Enter a whole number") {
+		t.Errorf("Intro text is incorrect; got %s", string(out))
+	}
 }
 
 func Test_checkNumbers(t *testing.T) {
 	// Table Test
 	tests := []struct {
-		name string
-		input string
+		name     string
+		input    string
 		expected string
-	} {
+	}{
 		{name: "empty", input: "", expected: "Please enter a whole number!"},
 		{name: "zero", input: "0", expected: "0 is not prime, by definition!"},
 		{name: "one", input: "1", expected: "1 is not prime, by definition!"},
@@ -125,7 +125,7 @@ func Test_readUserInput(t *testing.T) {
 
 	go readUserInput(&stdin, doneChan)
 
-	<- doneChan
-	
+	<-doneChan
+
 	close(doneChan)
 }

@@ -18,7 +18,7 @@ const webPort = "80"
 var counts int64
 
 type Config struct {
-	Repo data.Repository
+	Repo   data.Repository
 	Client *http.Client
 }
 

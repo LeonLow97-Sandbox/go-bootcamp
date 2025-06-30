@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	colors := map[string]string {
-		"red": "#ff000",
+	colors := map[string]string{
+		"red":   "#ff000",
 		"green": "#4bf745",
 		"white": "#ffffff",
 	}
@@ -17,4 +17,3 @@ func printMap(c map[string]string) {
 		fmt.Println("Hex code for", color, "is", hex)
 	}
 }
-

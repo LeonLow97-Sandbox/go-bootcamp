@@ -30,7 +30,7 @@ func (b *PersonBuilder) WorksAsA(position string) *PersonBuilder {
 	return b
 }
 
-// Build executes all the actions stored in b.actions to construct and return 
+// Build executes all the actions stored in b.actions to construct and return
 // a fully initialized Person object (p)
 func (b *PersonBuilder) Build() *Person {
 	p := Person{}

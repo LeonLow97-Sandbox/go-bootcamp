@@ -458,8 +458,8 @@ func (app *application) DeleteBook(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	payload := jsonResponse {
-		Error: false,
+	payload := jsonResponse{
+		Error:   false,
 		Message: "Book deleted",
 	}
 

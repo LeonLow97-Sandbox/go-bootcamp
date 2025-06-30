@@ -20,7 +20,7 @@ func main() {
 	go readUserInput(os.Stdin, doneChan)
 
 	// block until the doneChan gets a value
-	<- doneChan
+	<-doneChan
 
 	// close the channel
 	close(doneChan)
@@ -85,11 +85,11 @@ func isPrime(n int) (bool, string) {
 	// negative numbers are not prime
 	if n < 0 {
 		return false, "Negative numbers are not prime, by definition!"
-	}	
+	}
 
 	// use the modulus operator repeatedly to see if we have a prime number
 	for i := 2; i <= n/2; i++ {
-		if n % i == 0 {
+		if n%i == 0 {
 			// not a prime number
 			return false, fmt.Sprintf("%d is not a prime number because it is divisible by %d!", n, i)
 		}

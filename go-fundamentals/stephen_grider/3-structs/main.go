@@ -3,27 +3,27 @@ package main
 import "fmt"
 
 type contactInfo struct {
-	email string
+	email   string
 	zipCode int
 }
 
 // defining a custom struct
 type person struct {
 	firstName string
-	lastName string
+	lastName  string
 	contactInfo
 }
 
 func main() {
 	jim := person{
 		firstName: "Jim",
-		lastName: "Party",
-		contactInfo: contactInfo {
-			email: "jim@gmail.com",
+		lastName:  "Party",
+		contactInfo: contactInfo{
+			email:   "jim@gmail.com",
 			zipCode: 94000,
 		},
 	}
-  
+
 	// reference to struct in memory
 	jim.updateName("Jimmy")
 	jim.print()

@@ -48,7 +48,7 @@ func receivePost(w http.ResponseWriter, r *http.Request) {
 	}
 
 	responsePayload := ResponsePayload{
-		Message: "hit the handler ok, and sending response...",
+		Message:    "hit the handler ok, and sending response...",
 		StatusCode: http.StatusOK,
 	}
 
@@ -73,11 +73,11 @@ func remoteService(w http.ResponseWriter, r *http.Request) {
 	_, statusCode, err := t.PushJSONToRemote("http://localhost:8081/simulated-service", requestPayload)
 	if err != nil {
 		t.ErrorJSON(w, err)
-		return 
+		return
 	}
 
 	responsePayload := ResponsePayload{
-		Message: "hit the handler ok, and sending response...",
+		Message:    "hit the handler ok, and sending response...",
 		StatusCode: statusCode,
 	}
 
@@ -89,7 +89,7 @@ func remoteService(w http.ResponseWriter, r *http.Request) {
 }
 
 func simulatedService(w http.ResponseWriter, r *http.Request) {
-	payload := ResponsePayload {
+	payload := ResponsePayload{
 		Message: "ok",
 	}
 

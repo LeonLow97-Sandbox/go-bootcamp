@@ -95,7 +95,7 @@ func TestMain(m *testing.M) {
 		log.Fatalf("could not purge resource: %s", err)
 	}
 
-	// 
+	//
 	testRepo = &PostgresDBRepo{DB: testDB}
 
 	os.Exit(code)

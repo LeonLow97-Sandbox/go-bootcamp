@@ -66,7 +66,7 @@ func TestForm_ErrorGet(t *testing.T) {
 	form := NewForm(nil)
 	form.Check(false, "password", "password is required")
 	s := form.Errors.Get("password")
-	
+
 	if len(s) == 0 {
 		t.Error("should have an error returned from Get, but did not.")
 	}

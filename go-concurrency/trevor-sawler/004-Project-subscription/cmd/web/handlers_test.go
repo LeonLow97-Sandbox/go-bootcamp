@@ -107,11 +107,11 @@ func TestConfig_SubscribeToPlan(t *testing.T) {
 	req = req.WithContext(ctx)
 
 	testApp.Session.Put(ctx, "user", data.User{
-		ID: 1,
-		Email: "admin@example.com",
+		ID:        1,
+		Email:     "admin@example.com",
 		FirstName: "Admin",
-		LastName: "User",
-		Active: 1,
+		LastName:  "User",
+		Active:    1,
 	})
 
 	handler := http.HandlerFunc(testApp.SubscribeToPlan)

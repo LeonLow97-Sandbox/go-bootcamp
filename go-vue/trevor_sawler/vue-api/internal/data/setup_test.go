@@ -28,7 +28,7 @@ var (
 var models Models
 var testDB *sql.DB
 var resource *dockertest.Resource // used by dockertest
-var pool *dockertest.Pool // used by dockertest
+var pool *dockertest.Pool         // used by dockertest
 
 func TestMain(m *testing.M) {
 	p, err := dockertest.NewPool("")

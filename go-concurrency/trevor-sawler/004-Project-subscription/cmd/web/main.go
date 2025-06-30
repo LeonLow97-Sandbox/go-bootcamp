@@ -69,7 +69,7 @@ func (app *Config) listenForErrors() {
 		case err := <-app.ErrorChan:
 			// notify slack channel, do whatever u want
 			app.ErrorLog.Println(err)
-		case <- app.ErrorChanDone:
+		case <-app.ErrorChanDone:
 			return
 		}
 	}

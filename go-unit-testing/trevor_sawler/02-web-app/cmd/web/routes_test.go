@@ -11,9 +11,9 @@ import (
 // Testing to check if the route exists
 func Test_application_routes(t *testing.T) {
 	var registered = []struct {
-		route string
+		route  string
 		method string
-	} {
+	}{
 		{"/", "GET"},
 		{"/login", "POST"},
 		{"/user/profile", "GET"},
