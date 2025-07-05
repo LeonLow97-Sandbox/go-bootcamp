@@ -1,9 +1,9 @@
 # Course Links
 
-|                           Course Name                           |  Instructor   |                                 Course Link                                 |
-| :-------------------------------------------------------------: | :-----------: | :-------------------------------------------------------------------------: |
-|         Udemy - Working with Concurrency in Go (Golang)         | Trevor Sawler | [Link](https://www.udemy.com/course/working-with-concurrency-in-go-golang/) |
-| YouTube - Go Concurrency | Kantan Coding |             [Link](https://www.youtube.com/watch?v=qyM8Pi1KiiM&list=PL7g1jYj15RUNqJStuwE9SCmeOKpgxC0HP)             |
+|                   Course Name                   |  Instructor   |                                         Course Link                                         |
+| :---------------------------------------------: | :-----------: | :-----------------------------------------------------------------------------------------: |
+| Udemy - Working with Concurrency in Go (Golang) | Trevor Sawler |         [Link](https://www.udemy.com/course/working-with-concurrency-in-go-golang/)         |
+|            YouTube - Go Concurrency             | Kantan Coding | [Link](https://www.youtube.com/watch?v=qyM8Pi1KiiM&list=PL7g1jYj15RUNqJStuwE9SCmeOKpgxC0HP) |
 
 ## Golang Currency (Trevor Sawler) Course Outline
 

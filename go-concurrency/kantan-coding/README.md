@@ -1,6 +1,16 @@
 # Content
 
 - [GoRoutines](#goroutines)
+  - [Fork-Join Model](#fork-join-model)
+- [Channels](#channels)
+- [Select](#select)
+- [Buffered vs Unbuffered Channel](#buffered-vs-unbuffered-channel)
+- [Go Concurrency Patterns](#go-concurrency-patterns)
+  - [for-select loop](#for-select-loop)
+  - [done channel](#done-channel)
+  - [Pipelines](#pipelines)
+  - [Generator](#generator)
+  - [Combining Pipelines and Generator](#combining-pipelines-and-generator)
 
 # GoRoutines
 
@@ -165,3 +175,49 @@ func main() {
 - This allows a separation of concerns between the stages.
 
 ![Pipelines Code](./diagrams/pipelines-code.png)
+
+## Generator
+
+- Put a stream of data into a channel.
+
+```go
+func repeatFunc[T any, K any](done <-chan K, fn func() T) <-chan T {
+	stream := make(chan T)
+	go func() {
+		defer close(stream)
+		for {
+			select {
+			case <-done:
+				return
+			case stream <- fn():
+			}
+		}
+	}()
+
+	return stream
+}
+
+func main() {
+	done := make(chan int)
+	defer close(done)
+
+	randomNumFetcher := func() int {
+		// function that returns a random integer no greater than 500M
+		return rand.Intn(500000000)
+	}
+
+	for random := range repeatFunc(done, randomNumFetcher) {
+		fmt.Println(random)
+	}
+}
+```
+
+## Combining Pipelines and Generator
+
+![Combining Pipelines and Generator](./diagrams/pipelines-and-generator.png)
+
+- `findPrimes` is a slow operation.
+  - Scale up by fanning out. Increase the number of go routines
+  - Once done, fan in the goroutines into 1 channel.
+
+![Fan Out and Fan In](./diagrams/fanout-fanin.png)

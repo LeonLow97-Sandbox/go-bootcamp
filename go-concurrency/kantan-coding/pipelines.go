@@ -27,7 +27,8 @@ func sq(in <-chan int) <-chan int {
 	return out
 }
 
-func main() {
+// Run this in main.go
+func pipeline() {
 	// input
 	nums := []int{2, 3, 4, 7, 1, 12}
 
